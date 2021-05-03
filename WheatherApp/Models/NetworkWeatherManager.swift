@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 
 class NetworkWeatherManager {
-    
+    // MARK: TodayWeather
     func fetchtWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees, completion: @escaping (TodayWeather) -> Void) {
         let urlString = "https://api.openweathermap.org/data/2.5/forecast?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)&units=metric"
         guard let url = URL(string: urlString) else {
@@ -32,6 +32,7 @@ class NetworkWeatherManager {
         task.resume()
     }
     
+    // MARK: ForecastWeather
     func fetchHourlyWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees, completion: @escaping (HourlyWeather) -> Void) {
         let urlString = "https://api.openweathermap.org/data/2.5/forecast?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)&units=metric"
         guard let url = URL(string: urlString) else {
